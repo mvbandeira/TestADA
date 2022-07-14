@@ -62,10 +62,10 @@
 		A348466F287C993900B19F17 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A3484681287F3F0200B19F17 /* DetailsViewController.swift */,
 				A38E16B72874DFD000D08996 /* FeaturedViewController.swift */,
 				A348467F287E144F00B19F17 /* FeaturedViewController+UICollectionViewDataSource.swift */,
 				A3484683287F47E200B19F17 /* FeaturedViewController+UICollectionViewDelegate.swift */,
-				A3484681287F3F0200B19F17 /* DetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -93,12 +93,12 @@
 		A3484672287DEDF900B19F17 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A3484673287DEE4900B19F17 /* Movie.swift */,
 				A3484679287DF4E600B19F17 /* Movie+NowPlaying.swift */,
 				A3484675287DF4E600B19F17 /* Movie+Popular.swift */,
 				A3484678287DF4E600B19F17 /* Movie+TrendingThisWeek.swift */,
 				A3484676287DF4E600B19F17 /* Movie+TrendingToday.swift */,
 				A3484677287DF4E600B19F17 /* Movie+Upcoming.swift */,
-				A3484673287DEE4900B19F17 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,9 +124,9 @@
 			children = (
 				A38E16B32874DFD000D08996 /* AppDelegate.swift */,
 				A38E16B52874DFD000D08996 /* SceneDelegate.swift */,
-				A348466F287C993900B19F17 /* Controllers */,
 				A3484672287DEDF900B19F17 /* Model */,
 				A3484670287C99C700B19F17 /* Views */,
+				A348466F287C993900B19F17 /* Controllers */,
 				A3484671287C9E1A00B19F17 /* SupportingFiles */,
 			);
 			path = Popcorn;
