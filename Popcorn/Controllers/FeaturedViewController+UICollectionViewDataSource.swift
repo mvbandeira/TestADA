@@ -70,9 +70,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
         if let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as? UpcomingCollectionViewCell {
             
             let tituloUpcoming: String = upcomingMovies[indexPath.item].title
+            let dateUpcoming = upcomingMovies[indexPath.item].releaseDate
+            let date = DateHandler.shared.getMonth(of: dateUpcoming)
             
             cell.setup(title: tituloUpcoming,
-                       date: "",
+                       date: "\(date) \(upcomingMovies[indexPath.item].releaseDate.suffix(2))",
                        image: UIImage(named: upcomingMovies[indexPath.item].posterPath) ?? UIImage())
             return cell
         }
