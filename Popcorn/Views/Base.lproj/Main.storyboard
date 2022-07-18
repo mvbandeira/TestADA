@@ -254,7 +254,7 @@
                                                             <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jSe-nq-oVC">
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="upcomingCell" id="jSe-nq-oVC" customClass="UpcomingCollectionViewCell" customModule="Popcorn" customModuleProvider="target">
                                                                 <rect key="frame" x="8" y="9.5" width="200" height="299"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="S3e-ot-fi5">
@@ -295,6 +295,11 @@
                                                                         <constraint firstAttribute="bottom" secondItem="gj5-Zr-XSz" secondAttribute="bottom" constant="8" id="qFI-rO-7FD"/>
                                                                     </constraints>
                                                                 </collectionViewCellContentView>
+                                                                <connections>
+                                                                    <outlet property="dateLabel" destination="s2F-B0-VNv" id="xdR-no-F0h"/>
+                                                                    <outlet property="imageView" destination="NtX-zr-NqS" id="j5g-q4-hN1"/>
+                                                                    <outlet property="titleLabel" destination="60D-tU-J18" id="qzu-dn-61C"/>
+                                                                </connections>
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
@@ -328,6 +333,7 @@
                     <connections>
                         <outlet property="nowPlayingCollectionView" destination="Ln6-cJ-9Ck" id="lfG-9G-Qpf"/>
                         <outlet property="popularCollectionView" destination="dlE-vn-Ckv" id="Hay-fH-mS5"/>
+                        <outlet property="upcomingCollectionView" destination="5XR-TS-Mos" id="duc-ZL-gdd"/>
                         <segue destination="eb8-A5-pU4" kind="show" identifier="detailsSegue" id="OCL-FG-Ur0"/>
                     </connections>
                 </viewController>
@@ -542,6 +548,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="2fb-zi-Suv">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.87843137250000003" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

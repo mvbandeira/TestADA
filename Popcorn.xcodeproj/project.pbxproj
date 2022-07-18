@@ -18,6 +18,10 @@
 		A3484680287E144F00B19F17 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A348467F287E144F00B19F17 /* FeaturedViewController+UICollectionViewDataSource.swift */; };
 		A3484682287F3F0200B19F17 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484681287F3F0200B19F17 /* DetailsViewController.swift */; };
 		A3484684287F47E200B19F17 /* FeaturedViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3484683287F47E200B19F17 /* FeaturedViewController+UICollectionViewDelegate.swift */; };
+		A34846862881E7DA00B19F17 /* TMDB-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A34846852881E7DA00B19F17 /* TMDB-Info.plist */; };
+		A34846882881EC3E00B19F17 /* Movie+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34846872881EC3E00B19F17 /* Movie+API.swift */; };
+		A348468A2881F8CB00B19F17 /* MoviesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34846892881F8CB00B19F17 /* MoviesResponse.swift */; };
+		A34EE8782885D75500583B54 /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34EE8772885D75500583B54 /* UpcomingCollectionViewCell.swift */; };
 		A38E16B42874DFD000D08996 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E16B32874DFD000D08996 /* AppDelegate.swift */; };
 		A38E16B62874DFD000D08996 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E16B52874DFD000D08996 /* SceneDelegate.swift */; };
 		A38E16B82874DFD000D08996 /* FeaturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38E16B72874DFD000D08996 /* FeaturedViewController.swift */; };
@@ -38,6 +42,10 @@
 		A348467F287E144F00B19F17 /* FeaturedViewController+UICollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDataSource.swift"; sourceTree = "<group>"; };
 		A3484681287F3F0200B19F17 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A3484683287F47E200B19F17 /* FeaturedViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeaturedViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		A34846852881E7DA00B19F17 /* TMDB-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TMDB-Info.plist"; sourceTree = "<group>"; };
+		A34846872881EC3E00B19F17 /* Movie+API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+API.swift"; sourceTree = "<group>"; };
+		A34846892881F8CB00B19F17 /* MoviesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesResponse.swift; sourceTree = "<group>"; };
+		A34EE8772885D75500583B54 /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A38E16B02874DFD000D08996 /* Popcorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popcorn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38E16B32874DFD000D08996 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A38E16B52874DFD000D08996 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +85,7 @@
 				A38E16BE2874DFD000D08996 /* LaunchScreen.storyboard */,
 				A348466A287C980B00B19F17 /* PopularCollectionViewCell.swift */,
 				A348466C287C984800B19F17 /* NowPlayingCollectionViewCell.swift */,
+				A34EE8772885D75500583B54 /* UpcomingCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -86,6 +95,7 @@
 			children = (
 				A38E16BC2874DFD000D08996 /* Assets.xcassets */,
 				A38E16C12874DFD000D08996 /* Info.plist */,
+				A34846852881E7DA00B19F17 /* TMDB-Info.plist */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -94,11 +104,13 @@
 			isa = PBXGroup;
 			children = (
 				A3484673287DEE4900B19F17 /* Movie.swift */,
+				A34846872881EC3E00B19F17 /* Movie+API.swift */,
 				A3484679287DF4E600B19F17 /* Movie+NowPlaying.swift */,
 				A3484675287DF4E600B19F17 /* Movie+Popular.swift */,
 				A3484678287DF4E600B19F17 /* Movie+TrendingThisWeek.swift */,
 				A3484676287DF4E600B19F17 /* Movie+TrendingToday.swift */,
 				A3484677287DF4E600B19F17 /* Movie+Upcoming.swift */,
+				A34846892881F8CB00B19F17 /* MoviesResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A38E16C02874DFD000D08996 /* LaunchScreen.storyboard in Resources */,
+				A34846862881E7DA00B19F17 /* TMDB-Info.plist in Resources */,
 				A38E16BD2874DFD000D08996 /* Assets.xcassets in Resources */,
 				A38E16BB2874DFD000D08996 /* Main.storyboard in Resources */,
 			);
@@ -205,6 +218,8 @@
 			files = (
 				A348466D287C984800B19F17 /* NowPlayingCollectionViewCell.swift in Sources */,
 				A348466B287C980B00B19F17 /* PopularCollectionViewCell.swift in Sources */,
+				A34EE8782885D75500583B54 /* UpcomingCollectionViewCell.swift in Sources */,
+				A34846882881EC3E00B19F17 /* Movie+API.swift in Sources */,
 				A3484674287DEE4900B19F17 /* Movie.swift in Sources */,
 				A348467B287DF4E600B19F17 /* Movie+TrendingToday.swift in Sources */,
 				A3484680287E144F00B19F17 /* FeaturedViewController+UICollectionViewDataSource.swift in Sources */,
@@ -215,6 +230,7 @@
 				A38E16B42874DFD000D08996 /* AppDelegate.swift in Sources */,
 				A348467A287DF4E600B19F17 /* Movie+Popular.swift in Sources */,
 				A348467C287DF4E600B19F17 /* Movie+Upcoming.swift in Sources */,
+				A348468A2881F8CB00B19F17 /* MoviesResponse.swift in Sources */,
 				A3484682287F3F0200B19F17 /* DetailsViewController.swift in Sources */,
 				A38E16B62874DFD000D08996 /* SceneDelegate.swift in Sources */,
 			);

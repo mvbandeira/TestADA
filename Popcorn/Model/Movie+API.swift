@@ -9,6 +9,52 @@ import Foundation
 
 extension Movie {
 
+    // MARK: - Download de populares
+    static let urlComponents = URLComponents(string: "https://api.themoviedb.org/")!
+    
+    static func popularMoviesAPI() async -> [Movie] {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/movie/popular"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey),
+            URLQueryItem(name: "language", value: "pt-BR")
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data, response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MoviesResponse.self, from: data)
+            
+            return movieResult.results
+        } catch {
+            print(error)
+        }
+        return []
+    }
+    
+    //MARK: - Download de imagens
+    static func downloadImageData(withPath: String) async -> Data {
+        let urlString  = "https://image.tmdb.org/t/p/w500/\(withPath)"
+        let url: URL = URL(string: urlString)!
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data, response) = try await session.data(from: url)
+            return data
+        } catch {
+            print(error)
+        }
+        
+        return Data()
+    }
+    
     // MARK: - Recuperando a chave da API de um arquivo
     static var apiKey: String {
         guard let url = Bundle.main.url(forResource: "TMDB-Info", withExtension: "plist") else {
