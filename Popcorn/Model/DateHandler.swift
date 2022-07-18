@@ -7,7 +7,6 @@
 
 import Foundation
 
-//
 class DateHandler {
     
     let parser: [String: String] = [

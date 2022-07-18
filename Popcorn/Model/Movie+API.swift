@@ -38,6 +38,33 @@ extension Movie {
         return []
     }
     
+    // MARK: - Download de em cartaz
+    static func nowPlayingMoviesAPI() async -> [Movie] {
+        
+        var components = Movie.urlComponents
+        components.path = "/3/movie/now_playing"
+        components.queryItems = [
+            URLQueryItem(name: "api_key", value: Movie.apiKey),
+            URLQueryItem(name: "language", value: "pt-BR")
+        ]
+        
+        let session = URLSession.shared
+        
+        do {
+            let (data, response) = try await session.data(from: components.url!)
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            let movieResult = try decoder.decode(MoviesResponse.self, from: data)
+            
+            return movieResult.results
+        } catch {
+            print(error)
+        }
+        return []
+    }
+    
     //MARK: - Download de imagens
     static func downloadImageData(withPath: String) async -> Data {
         let urlString  = "https://image.tmdb.org/t/p/w500/\(withPath)"

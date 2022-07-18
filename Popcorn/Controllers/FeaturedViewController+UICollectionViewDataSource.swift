@@ -32,10 +32,11 @@ extension FeaturedViewController: UICollectionViewDataSource {
     
     fileprivate func makePopularCell(_ indexPath: IndexPath) -> PopularCollectionViewCell {
         if let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.cellIdentifier, for: indexPath) as? PopularCollectionViewCell {
-            
-//            cell.setup(title: popularMovies[indexPath.item].title,
-//                       image: UIImage())
+ 
             let movie = popularMovies[indexPath.item]
+            
+            cell.setup(title: popularMovies[indexPath.item].title,
+                       image: UIImage())
             
             Task{
                 let imageData = await Movie.downloadImageData(withPath: movie.backdropPath)
@@ -51,17 +52,19 @@ extension FeaturedViewController: UICollectionViewDataSource {
     fileprivate func makeNowPlayingCell(_ indexPath: IndexPath) -> NowPlayingCollectionViewCell {
         if let cell = nowPlayingCollectionView.dequeueReusableCell(withReuseIdentifier: NowPlayingCollectionViewCell.cellIdentifier, for: indexPath) as? NowPlayingCollectionViewCell {
             
-            let titulo: String = nowPlayingMovies[indexPath.item].title
+            let movie = nowPlayingMovies[indexPath.item]
             
-            cell.setup(title: titulo,
-                       year: "\(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))",
-                       image: UIImage(named: nowPlayingMovies[indexPath.item].posterPath) ?? UIImage())
+            cell.setup(title: movie.title,
+                       year: "\(movie.releaseDate.prefix(4))",
+                       image: UIImage())
+            
+            Task {
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let image = UIImage(data: imageData) ?? UIImage()
+                cell.setup(title: movie.title, year: "\(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))", image: image)
+            }
+            
             return cell
-            
-            /*cell.titleLabel.text = titulo
-             cell.dateLabel.text = String(nowPlayingMovies[indexPath.item].releaseDate.prefix(4))
-             cell.imageView.image = UIImage(named: nowPlayingMovies[indexPath.item].poster)*/
-            
         }
         return NowPlayingCollectionViewCell()
     }
