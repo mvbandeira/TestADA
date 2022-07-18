@@ -72,13 +72,22 @@ extension FeaturedViewController: UICollectionViewDataSource {
     fileprivate func makeUpcomingCell(_ indexPath: IndexPath) -> UpcomingCollectionViewCell {
         if let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as? UpcomingCollectionViewCell {
             
-            let tituloUpcoming: String = upcomingMovies[indexPath.item].title
+            let movie = upcomingMovies[indexPath.item]
             let dateUpcoming = upcomingMovies[indexPath.item].releaseDate
             let date = DateHandler.shared.getMonth(of: dateUpcoming)
             
-            cell.setup(title: tituloUpcoming,
-                       date: "\(date) \(upcomingMovies[indexPath.item].releaseDate.suffix(2))",
-                       image: UIImage(named: upcomingMovies[indexPath.item].posterPath) ?? UIImage())
+            cell.setup(title: movie.title,
+                       date: "\(date) \(movie.releaseDate.suffix(2))",
+                       image: UIImage())
+            
+            Task {
+                let imageData = await Movie.downloadImageData(withPath: movie.posterPath)
+                let image = UIImage(data: imageData) ?? UIImage()
+                cell.setup(title: movie.title,
+                           date: "\(date) \(movie.releaseDate.suffix(2))",
+                           image: image)
+            }
+            
             return cell
         }
         return UpcomingCollectionViewCell()
