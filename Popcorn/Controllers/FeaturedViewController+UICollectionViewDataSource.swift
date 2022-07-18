@@ -14,7 +14,7 @@ extension FeaturedViewController: UICollectionViewDataSource {
         } else if collectionView == nowPlayingCollectionView {
             return nowPlayingMovies.count
         } else {
-            return 0
+            return upcomingMovies.count
         }
         
     }
@@ -25,16 +25,16 @@ extension FeaturedViewController: UICollectionViewDataSource {
             return makePopularCell(indexPath)
         } else if collectionView == nowPlayingCollectionView {
             return makeNowPlayingCell(indexPath)
+        } else {
+            return makeUpcomingCell(indexPath)
         }
-        
-        return UICollectionViewCell()
     }
     
     fileprivate func makePopularCell(_ indexPath: IndexPath) -> PopularCollectionViewCell {
         if let cell = popularCollectionView.dequeueReusableCell(withReuseIdentifier: PopularCollectionViewCell.cellIdentifier, for: indexPath) as? PopularCollectionViewCell {
             
-            cell.setup(title: popularMovies[indexPath.item].title,
-                       image: UIImage())
+//            cell.setup(title: popularMovies[indexPath.item].title,
+//                       image: UIImage())
             let movie = popularMovies[indexPath.item]
             
             Task{
@@ -64,6 +64,19 @@ extension FeaturedViewController: UICollectionViewDataSource {
             
         }
         return NowPlayingCollectionViewCell()
+    }
+    
+    fileprivate func makeUpcomingCell(_ indexPath: IndexPath) -> UpcomingCollectionViewCell {
+        if let cell = upcomingCollectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCollectionViewCell.cellIdentifier, for: indexPath) as? UpcomingCollectionViewCell {
+            
+            let tituloUpcoming: String = upcomingMovies[indexPath.item].title
+            
+            cell.setup(title: tituloUpcoming,
+                       date: "",
+                       image: UIImage(named: upcomingMovies[indexPath.item].posterPath) ?? UIImage())
+            return cell
+        }
+        return UpcomingCollectionViewCell()
     }
     
 }
