@@ -361,6 +361,9 @@
                                                     <segment title="Hoje"/>
                                                     <segment title="Essa semana"/>
                                                 </segments>
+                                                <connections>
+                                                    <action selector="segment:" destination="Hjl-zJ-YZg" eventType="valueChanged" id="VwU-m2-ELR"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

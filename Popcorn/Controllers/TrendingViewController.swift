@@ -9,7 +9,10 @@ import UIKit
     
 class TrendingViewController: UIViewController {
     
+    var state: Int = 0
+    
     var todayMovies: [Movie] = []
+    var weekMovies: [Movie] = []
     
     @IBOutlet var trendingCollectionView: UICollectionView!
     
@@ -21,12 +24,21 @@ class TrendingViewController: UIViewController {
         
         Task {
             self.todayMovies = await Movie.trendingTodayMoviesAPI()
+            self.weekMovies = await Movie.trendingWeekMoviesAPI()
             self.trendingCollectionView.reloadData()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return todayMovies.count
+    @IBAction func segment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            state = 0
+            print(todayMovies.count)
+        }
+        else if sender.selectedSegmentIndex == 1 {
+            state = 1
+            print(weekMovies.count)
+        }
+        trendingCollectionView.reloadData()
     }
 
 }
