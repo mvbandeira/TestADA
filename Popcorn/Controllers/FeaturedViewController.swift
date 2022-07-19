@@ -10,8 +10,8 @@ import UIKit
 class FeaturedViewController: UIViewController {
 
     var popularMovies: [Movie] = []
-    var nowPlayingMovies = Movie.nowPlayingMovies()
-    var upcomingMovies = Movie.upcomingMovies()
+    var nowPlayingMovies: [Movie] = []
+    var upcomingMovies: [Movie] = []
     
     @IBOutlet var popularCollectionView: UICollectionView!
     @IBOutlet var nowPlayingCollectionView: UICollectionView!
