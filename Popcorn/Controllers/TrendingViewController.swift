@@ -21,6 +21,7 @@ class TrendingViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         trendingCollectionView.dataSource = self
+        trendingCollectionView.delegate = self
         
         Task {
             self.todayMovies = await Movie.trendingTodayMoviesAPI()
@@ -40,5 +41,12 @@ class TrendingViewController: UIViewController {
         }
         trendingCollectionView.reloadData()
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailsViewController {
+            let movie = sender as? Movie
+            destination.movie = movie
+        }
+    }
+    
 }

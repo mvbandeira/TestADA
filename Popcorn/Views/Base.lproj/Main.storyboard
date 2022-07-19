@@ -454,6 +454,7 @@
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="trendingCollectionView" destination="bHx-YX-Lhs" id="1FU-sf-gsD"/>
+                        <segue destination="eb8-A5-pU4" kind="show" identifier="detailsSegue" id="ccb-0v-daK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qaj-01-vEC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -688,6 +689,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="BcP-mh-SAz">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.87843137250000003" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -699,6 +701,9 @@
             <point key="canvasLocation" x="461" y="1021"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ccb-0v-daK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="film.fill" catalog="system" width="128" height="93"/>

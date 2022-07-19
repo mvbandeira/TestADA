@@ -98,7 +98,8 @@ extension Movie {
         var components = Movie.urlComponents
         components.path = "/3/trending/movie/day"
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: Movie.apiKey)
+            URLQueryItem(name: "api_key", value: Movie.apiKey),
+            URLQueryItem(name: "language", value: "pt-BR")
         ]
         
         let session = URLSession.shared
@@ -124,7 +125,8 @@ extension Movie {
         var components = Movie.urlComponents
         components.path = "/3/trending/movie/week"
         components.queryItems = [
-            URLQueryItem(name: "api_key", value: Movie.apiKey)
+            URLQueryItem(name: "api_key", value: Movie.apiKey),
+            URLQueryItem(name: "language", value: "pt-BR")
         ]
         
         let session = URLSession.shared
